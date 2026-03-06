@@ -12,6 +12,7 @@ reminder messages.
 ## Features
 
 - Track user login activity using `last_login_at`
+- Automatically update login timestamp using Laravel **Authentication Event Listener**
 - Detect inactive users after a configurable number of days
 - Scheduled command runs daily
 - Dispatch queued jobs for each inactive user
