@@ -20,6 +20,7 @@ reminder messages.
 - Store reminder history in the `reminder_logs` table
 - Prevent users from being processed more than once per day
 - Dashboard integration using Laravel Breeze + Livewire
+- Manual **Admin Dashboard button** to trigger the reminder check for testing
 
 ---
 
@@ -187,6 +188,8 @@ php artisan queue:flush
 
 ## Testing the Reminder System
 
+### Option 1: Run from terminal
+
 Start the queue worker:
 
 ```bash
@@ -198,6 +201,31 @@ Run the reminder command manually:
 ```bash
 php artisan app:run-scheduler
 ```
+
+Check the logs:
+
+    storage/logs/laravel.log
+
+Check the database:
+
+    reminder_logs table
+
+---
+
+### Option 2: Run from terminal
+
+Start the queue worker:
+
+```bash
+php artisan queue:work
+```
+
+Log in using the test admin account created by the seeder:
+
+        admin@test.com
+        password: password
+
+Navigate to the Admin Dashboard and click the Run Reminder Check button.
 
 Check the logs:
 
