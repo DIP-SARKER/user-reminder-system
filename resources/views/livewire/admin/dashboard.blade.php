@@ -14,6 +14,31 @@
             <p class="mt-2 text-gray-600">
                 Glad to see you back! You are successfully logged in.
             </p>
+
+            <div class="mt-4 flex items-center gap-3">
+                <button wire:click="runScheduler" wire:loading.attr="disabled"
+                    class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 disabled:opacity-50">
+                    <span wire:loading.remove wire:target="runScheduler">
+                        Run Scheduler
+                    </span>
+
+                    <span wire:loading wire:target="runScheduler">
+                        Running...
+                    </span>
+                </button>
+
+                @if (session()->has('success'))
+                    <span class="text-sm text-green-600 font-medium">
+                        {{ session('success') }}
+                    </span>
+                @endif
+
+                @if (session()->has('error'))
+                    <span class="text-sm text-red-600 font-medium">
+                        {{ session('error') }}
+                    </span>
+                @endif
+            </div>
         </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
